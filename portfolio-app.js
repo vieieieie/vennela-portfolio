@@ -54,9 +54,9 @@
     if (portraitContainer) {
       portraitContainer.innerHTML = `
         <div class="portrait-frame w-full max-w-md mx-auto aspect-[4/5] bg-slate-900">
-          <img src="${config.profileImage}" alt="Portrait of ${config.name}, ${config.title}" 
-               loading="eager"
-               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';">
+          <img src="${config.profileImage}"
+     alt="Portrait of ${config.name}, ${config.title}"
+     loading="eager">
           <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
           <div class="absolute bottom-4 left-4 right-4 text-center pointer-events-none">
             <span class="inline-block px-3 py-1 text-[11px] font-mono tracking-widest uppercase bg-sky-950/80 text-sky-300 border border-sky-400/30 rounded-full backdrop-blur-sm">
