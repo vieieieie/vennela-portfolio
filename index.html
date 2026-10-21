@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vennela — Professional Video Editor Portfolio</title>
+  <meta name="description" content="Portfolio of Vennela — Video Editor specializing in high-retention short-form content and cinematic long-form stories.">
+  <meta name="author" content="Vennela">
+
+  <!-- Open Graph / Social Sharing Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vennela — Video Editor Portfolio">
+  <meta property="og:description" content="Transforming raw footage into engaging visual stories across short-form content and long-form cinema.">
+  <meta property="og:image" content="assets/vennela-photo.jpg">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              deep: '#050811',
+              charcoal: '#0a0f1d',
+              midnight: '#0d172e',
+              electric: '#00d2ff',
+              sky: '#38bdf8',
+              accent: '#2563eb'
+            }
+          },
+          fontFamily: {
+            sans: ['Helvetica Neue', 'Helvetica', 'Inter', 'Arial', 'sans-serif'],
+            script: ['Birds of Paradise', 'Pinyon Script', 'Alex Brush', 'cursive'],
+            display: ['Relationship of Melodrama', 'Playfair Display', 'Cinzel Decorative', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-[#050811] text-slate-100 antialiased font-sans selection:bg-sky-500/30 selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- CINEMATIC PARALLAX BACKGROUND LAYERS                                      -->
+  <!-- ========================================================================= -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <!-- Layer Back: Moves slowly with parallax scroll -->
+    <div class="parallax-layer-back w-full h-full">
+      <div class="ambient-light-1 absolute -top-40 -left-40 w-[650px] h-[650px] rounded-full opacity-40"></div>
+      <div class="ambient-light-2 absolute top-1/3 -right-40 w-[700px] h-[700px] rounded-full opacity-35"></div>
+      <div class="ambient-light-bottom absolute -bottom-40 left-1/4 w-[800px] h-[800px] rounded-full opacity-30"></div>
+    </div>
+
+    <!-- Layer Mid: Subtle grid and cinematic particles -->
+    <div class="parallax-layer-mid w-full h-full cinematic-grid opacity-35"></div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- TOP NAVIGATION BAR                                                        -->
+  <!-- Requirements: Three functional links (About Me, My Work, Contact Me)      -->
+  <!-- ========================================================================= -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        
+        <!-- Brand Logo / Identity -->
+        <a href="#hero" class="flex items-center space-x-2 group focus:outline-none focus:ring-2 focus:ring-sky-400 rounded-lg">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-500 to-blue-600 flex items-center justify-center shadow-md shadow-sky-950/40 group-hover:scale-105 transition-transform">
+            <span class="text-white font-black text-sm">V</span>
+          </div>
+          <span class="font-bold text-base tracking-wider text-white">
+            VENNELA<span class="text-sky-400">.</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation: Exactly the 3 requested functional links -->
+        <nav class="hidden md:flex items-center space-x-2 px-4 py-1.5 rounded-full bg-slate-900/70 border border-sky-500/15 backdrop-blur-md shadow-sm" aria-label="Main Navigation">
+          <a href="#about" class="nav-link px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition-colors rounded-full focus:outline-none focus:ring-1 focus:ring-sky-400">
+            About Me
+          </a>
+          <a href="#work" class="nav-link px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition-colors rounded-full focus:outline-none focus:ring-1 focus:ring-sky-400">
+            My Work
+          </a>
+          <a href="#contact" class="nav-link px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white transition-colors rounded-full focus:outline-none focus:ring-1 focus:ring-sky-400">
+            Contact Me
+          </a>
+        </nav>
+
+        <!-- Right Quick Contact Indicator -->
+        <div class="hidden sm:flex items-center">
+          <a href="#contact" class="px-4 py-2 rounded-xl text-xs font-mono font-medium text-sky-300 bg-sky-950/40 border border-sky-500/25 hover:border-sky-400 hover:text-white transition-all flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Open for Work</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" 
+                aria-label="Toggle navigation menu" 
+                class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400 rounded-lg">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pt-3 pb-5 mt-2 mx-4 rounded-2xl bg-slate-950/95 border border-sky-500/20 backdrop-blur-xl shadow-2xl space-y-2">
+      <a href="#about" class="block px-3 py-2 text-sm font-semibold text-slate-200 hover:text-sky-400 rounded-lg">About Me</a>
+      <a href="#work" class="block px-3 py-2 text-sm font-semibold text-slate-200 hover:text-sky-400 rounded-lg">My Work</a>
+      <a href="#contact" class="block px-3 py-2 text-sm font-semibold text-slate-200 hover:text-sky-400 rounded-lg">Contact Me</a>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- FIRST SCREEN — HERO SECTION (Wireframe Layout)                            -->
+  <!-- Left: My Picture + 2 Contact Buttons (Email Me, Instagram)                -->
+  <!-- Right: Identity (Vennela, Video Editor) + About Me Biography              -->
+  <!-- ========================================================================= -->
+  <section id="hero" class="relative z-10 pt-28 pb-16 md:pt-36 md:pb-24 min-h-[92vh] flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        
+        <!-- LEFT COLUMN: My Picture + Contact Buttons Underneath -->
+        <div class="lg:col-span-5 flex flex-col items-center">
+          <!-- Portrait Frame -->
+          <div id="hero-portrait-container" class="w-full">
+            <!-- Hydrated from portfolio-data.js -->
+            <div class="portrait-frame w-full max-w-md mx-auto aspect-[4/5] bg-slate-900 animate-pulse"></div>
+          </div>
+
+          <!-- Contact Buttons directly underneath my picture -->
+          <div id="hero-contact-buttons" class="w-full">
+            <!-- Hydrated from portfolio-data.js (Email Me & Instagram) -->
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Introduction and About Me -->
+        <div class="lg:col-span-7">
+          <div id="hero-identity" class="space-y-4">
+            <!-- Hydrated from portfolio-data.js -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- ABOUT ME SECTION                                                          -->
+  <!-- Linked from top nav "About Me"                                            -->
+  <!-- ========================================================================= -->
+  <section id="about" class="relative z-10 py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="about-content">
+        <!-- Hydrated from portfolio-data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- MY WORK — PORTFOLIO CATEGORIES                                            -->
+  <!-- Linked from top nav "My Work"                                             -->
+  <!-- Category 1: Short-Form Content                                            -->
+  <!-- Category 2: Long-Form Content                                             -->
+  <!-- ========================================================================= -->
+  <section id="work" class="relative z-10 py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="mb-14 text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-sky-400">
+          <span>SELECTED PORTFOLIO</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white display-heading">
+          Explore by <span class="script-highlight text-sky-300">Format</span>
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          From high-retention vertical edits to narrative widescreen cinema, select a category below to explore projects.
+        </p>
+      </div>
+
+      <!-- VIEW A: CATEGORIES OVERVIEW GRID -->
+      <div id="categories-overview-wrapper">
+        <div id="portfolio-categories-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- Hydrated from portfolio-data.js (Short-Form, Long-Form) -->
+        </div>
+      </div>
+
+      <!-- VIEW B: DEDICATED CATEGORY DETAIL VIEW (Appears when a category is clicked) -->
+      <div id="category-detail-wrapper" class="hidden">
+        <!-- Rendered dynamically by js/portfolio-app.js when a category is selected -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- CONTACT ME SECTION                                                        -->
+  <!-- Linked from top nav "Contact Me"                                          -->
+  <!-- Copy: "Have a project in mind?" & "Let’s create something worth watching." -->
+  <!-- Buttons: Email Me & Instagram                                             -->
+  <!-- ========================================================================= -->
+  <section id="contact" class="relative z-10 py-24 lg:py-32 bg-gradient-to-b from-[#050811] via-[#091124] to-[#050811] border-t border-sky-500/15">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="contact-content">
+        <!-- Hydrated from portfolio-data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER                                                                    -->
+  <!-- ========================================================================= -->
+  <footer class="relative z-10 py-8 border-t border-slate-800/80 bg-slate-950/80 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span id="footer-brand-name" class="font-medium text-slate-300">Vennela — Video Editor</span>
+        <span class="mx-2 text-slate-600">&bull;</span>
+        <span>&copy; <span id="footer-year">2026</span> All rights reserved.</span>
+      </div>
+      <div class="flex items-center space-x-6 font-mono text-[11px]">
+        <a href="#hero" class="text-slate-400 hover:text-sky-400 transition-colors">Back to Top &uarr;</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- VIDEO LIGHTBOX MODAL                                                      -->
+  <!-- ========================================================================= -->
+  <div id="video-modal" 
+       class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 modal-closed"
+       role="dialog" 
+       aria-modal="true" 
+       aria-labelledby="modal-video-title">
+    
+    <!-- Modal Backdrop -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md"></div>
+
+    <!-- Modal Dialog Content -->
+    <div class="relative z-10 w-full max-w-4xl glass-card border border-sky-500/30 p-4 sm:p-6 shadow-2xl flex flex-col max-h-[92vh] overflow-y-auto">
+      
+      <!-- Modal Top Bar -->
+      <div class="flex items-center justify-between pb-3 mb-3 border-b border-sky-500/15">
+        <div class="flex items-center gap-2">
+          <span id="modal-video-platform" class="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase bg-sky-950/80 text-sky-300 border border-sky-400/30">
+            Platform
+          </span>
+          <h3 id="modal-video-title" class="text-base sm:text-lg font-bold text-white truncate max-w-md">
+            Video Preview
+          </h3>
+        </div>
+        
+        <button id="modal-close-btn" 
+                aria-label="Close video player" 
+                class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Player Iframe Container -->
+      <div id="modal-player-container" class="my-auto">
+        <!-- Injected dynamically -->
+      </div>
+
+      <!-- Direct Link Bar -->
+      <div class="pt-3 mt-3 border-t border-sky-500/15 flex items-center justify-end">
+        <a id="modal-external-link" 
+           href="#" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="inline-flex items-center gap-1.5 text-xs font-mono text-sky-400 hover:text-white transition-colors flex-shrink-0">
+          <span>Open Video</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- EMAIL CHOOSER MODAL (Guarantees Email works on all devices & browsers)    -->
+  <!-- ========================================================================= -->
+  <div id="email-modal" 
+       class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-closed"
+       role="dialog" 
+       aria-modal="true" 
+       aria-labelledby="email-modal-title">
+    
+    <!-- Modal Backdrop -->
+    <div id="email-modal-backdrop" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md"></div>
+
+    <!-- Modal Card -->
+    <div class="relative z-10 w-full max-w-md glass-card border border-sky-500/30 p-6 rounded-2xl shadow-2xl space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-sky-500/20">
+        <div class="flex items-center gap-2.5 text-white font-bold text-base sm:text-lg">
+          <div class="w-8 h-8 rounded-lg bg-sky-500/20 flex items-center justify-center text-sky-400 border border-sky-400/30">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </div>
+          <span id="email-modal-title">Email Vennela</span>
+        </div>
+        <button id="email-modal-close" 
+                aria-label="Close dialog" 
+                class="p-2 text-slate-400 hover:text-white hover:bg-slate-800/80 rounded-xl transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div>
+        <p class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">Target Address</p>
+        <div class="flex items-center justify-between p-3 rounded-xl bg-slate-950/80 border border-sky-500/25">
+          <span class="font-mono text-sm sm:text-base font-semibold text-sky-300 select-all">vvennelaaa@gmail.com</span>
+          <button id="email-modal-copy-pill" class="text-xs font-mono px-2.5 py-1 rounded bg-sky-500/20 hover:bg-sky-500/40 text-sky-300 transition-colors flex items-center gap-1">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+            <span id="email-modal-copy-pill-text">Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate-300">
+        Choose your preferred way to compose:
+      </p>
+
+      <div class="space-y-2.5 pt-1">
+        <!-- 1. Open in Gmail (Browser) -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vvennelaaa@gmail.com&su=Video%20Editing%20Inquiry%20-%20Vennela" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="w-full py-3 px-4 rounded-xl font-semibold text-sm flex items-center justify-between bg-gradient-to-r from-sky-600/30 to-blue-600/30 border border-sky-400/50 text-white hover:from-sky-500/40 hover:to-blue-500/40 transition-all shadow-md">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-red-400 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.272H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+            </svg>
+            <span class="text-left">Open in Gmail (Browser)</span>
+          </div>
+          <i data-lucide="external-link" class="w-4 h-4 text-sky-300"></i>
+        </a>
+
+        <!-- 2. Open Default Mail App -->
+        <a href="mailto:vvennelaaa@gmail.com?subject=Video%20Editing%20Inquiry%20-%20Vennela"
+           class="w-full py-3 px-4 rounded-xl font-medium text-sm flex items-center justify-between bg-slate-900/90 border border-slate-700/80 text-slate-200 hover:text-white hover:border-sky-400/50 transition-all">
+          <div class="flex items-center gap-3">
+            <i data-lucide="send" class="w-5 h-5 text-sky-400 flex-shrink-0"></i>
+            <span class="text-left">Open Default Mail App (Outlook / Apple Mail)</span>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- APPLICATION SCRIPTS                                                       -->
+  <!-- ========================================================================= -->
+  <!-- 1. Centralized content data (User editable) -->
+  <script src="js/portfolio-data.js?v=6.0"></script>
+
+  <!-- 2. Application runtime engine -->
+  <script src="js/portfolio-app.js?v=6.0"></script>
+
+</body>
+</html>

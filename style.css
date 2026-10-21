@@ -1,0 +1,402 @@
+/* =============================================================================
+   VENNELA — VIDEO EDITOR PORTFOLIO STYLESHEET
+   Design Direction: Cinematic, Minimal, Dark-to-Blue Palette, Editorial Typography
+   ============================================================================= */
+
+/* Google Fonts Fallback for Expressive Typography */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Pinyon+Script&family=Alex+Brush&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* -----------------------------------------------------------------------------
+   Custom Font Declarations: Birds of Paradise & Relationship of Melodrama
+   ----------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Birds of Paradise';
+  src: local('Birds of Paradise'),
+       local('BirdsOfParadise'),
+       url('../assets/fonts/Birds-of-Paradise.woff2') format('woff2'),
+       url('../assets/fonts/Birds-of-Paradise.ttf') format('truetype');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Relationship of Melodrama';
+  src: local('Relationship of Melodrama'),
+       local('RelationshipOfMelodrama'),
+       url('../assets/fonts/Relationship-of-Melodrama.woff2') format('woff2'),
+       url('../assets/fonts/Relationship-of-Melodrama.ttf') format('truetype');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* -----------------------------------------------------------------------------
+   Theme Custom Properties
+   ----------------------------------------------------------------------------- */
+:root {
+  /* Color Palette: Deep black, charcoal, midnight blue, electric blue, icy blue */
+  --bg-deep: #050811;
+  --bg-charcoal: #0a0f1d;
+  --bg-midnight: #0d172e;
+  --bg-card: rgba(12, 19, 35, 0.75);
+  --bg-card-hover: rgba(16, 26, 48, 0.9);
+  
+  --electric-blue: #00d2ff;
+  --sky-blue: #38bdf8;
+  --deep-accent: #1d4ed8;
+  --icy-blue: #e0f2fe;
+  --text-muted: #94a3b8;
+  
+  --border-subtle: rgba(56, 189, 248, 0.12);
+  --border-glow: rgba(56, 189, 248, 0.35);
+  --border-active: #38bdf8;
+
+  /* Typography Stacks */
+  --font-body: 'Helvetica Neue', Helvetica, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-script: 'Birds of Paradise', 'Pinyon Script', 'Alex Brush', cursive;
+  --font-display: 'Relationship of Melodrama', 'Playfair Display', 'Cinzel Decorative', Georgia, serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+}
+
+/* -----------------------------------------------------------------------------
+   Base Resets & Scroll Behavior
+   ----------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  background-color: var(--bg-deep);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg-deep);
+  color: #f8fafc;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(14, 165, 233, 0.4);
+  color: #ffffff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050811;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* -----------------------------------------------------------------------------
+   Typography Utilities
+   ----------------------------------------------------------------------------- */
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Expressive script highlight class */
+.script-highlight {
+  font-family: var(--font-script);
+  font-size: 1.25em;
+  font-weight: normal;
+  color: var(--sky-blue);
+  letter-spacing: 0.04em;
+  display: inline-block;
+}
+
+/* Expressive melodrama heading style */
+.display-heading {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* -----------------------------------------------------------------------------
+   Cinematic Parallax & Layered Depth
+   ----------------------------------------------------------------------------- */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-layer-back {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  transform: translate3d(0, var(--parallax-y-back, 0px), 0);
+  will-change: transform;
+}
+
+.parallax-layer-mid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  transform: translate3d(0, var(--parallax-y-mid, 0px), 0);
+  will-change: transform;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtle background grid & gradient light textures */
+.cinematic-grid {
+  background-size: 56px 56px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.025) 1px, transparent 1px);
+}
+
+.ambient-light-1 {
+  background: radial-gradient(circle at 20% 30%, rgba(14, 165, 233, 0.15) 0%, rgba(5, 8, 17, 0) 65%);
+}
+
+.ambient-light-2 {
+  background: radial-gradient(circle at 80% 60%, rgba(37, 99, 235, 0.13) 0%, rgba(5, 8, 17, 0) 65%);
+}
+
+.ambient-light-bottom {
+  background: radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.18) 0%, rgba(5, 8, 17, 0) 70%);
+}
+
+/* -----------------------------------------------------------------------------
+   Glassmorphic & Editorial Card Styling
+   ----------------------------------------------------------------------------- */
+.glass-header {
+  background: rgba(5, 8, 17, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.25rem;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease,
+              background-color 0.35s ease;
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-glow);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.22);
+}
+
+/* Portrait Card in Wireframe */
+.portrait-frame {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 30px -10px rgba(56, 189, 248, 0.15);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portrait-frame:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px -5px rgba(56, 189, 248, 0.25);
+}
+
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portrait-frame:hover img {
+  transform: scale(1.03);
+}
+
+/* -----------------------------------------------------------------------------
+   Buttons & Interactive Elements
+   ----------------------------------------------------------------------------- */
+.btn-primary-blue {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  color: #ffffff;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary-blue:hover {
+  background: linear-gradient(135deg, #0ea5e9 0%, #1d4ed8 100%);
+  border-color: rgba(56, 189, 248, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+}
+
+.btn-secondary-dark {
+  background: rgba(13, 21, 38, 0.85);
+  color: #e2e8f0;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary-dark:hover {
+  background: rgba(22, 34, 62, 0.95);
+  color: #ffffff;
+  border-color: rgba(56, 189, 248, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.2);
+}
+
+/* Category explore action button */
+.btn-explore {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  transition: all 0.25s ease;
+}
+
+.btn-explore:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+/* -----------------------------------------------------------------------------
+   Video Wrappers (9:16 and 16:9)
+   ----------------------------------------------------------------------------- */
+.video-wrap-16-9 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  background: #020408;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.video-wrap-16-9 iframe,
+.video-wrap-16-9 video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-wrap-9-16 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 177.77%; /* 9:16 Aspect Ratio */
+  background: #020408;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.video-wrap-9-16 iframe,
+.video-wrap-9-16 video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Category View Switcher Animation
+   ----------------------------------------------------------------------------- */
+.view-enter {
+  animation: viewFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes viewFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Lightbox & Dialog Modals
+   ----------------------------------------------------------------------------- */
+#video-modal,
+#email-modal {
+  transition: opacity 0.3s ease;
+}
+
+#video-modal.modal-open,
+#email-modal.modal-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#video-modal.modal-closed,
+#email-modal.modal-closed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* -----------------------------------------------------------------------------
+   Reduced Motion Accessibility
+   ----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .parallax-layer-back,
+  .parallax-layer-mid {
+    transform: none !important;
+  }
+
+  .glass-card:hover,
+  .portrait-frame:hover,
+  .btn-primary-blue:hover,
+  .btn-secondary-dark:hover {
+    transform: none !important;
+  }
+}
