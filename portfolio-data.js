@@ -17,8 +17,7 @@ const PORTFOLIO_CONFIG = {
     bio: "I specialize in photography, video editing, and colour grading, with a strong eye for detail and visual storytelling. I enjoy creating cinematic visuals that capture emotions, enhance the mood, and turn ordinary moments into visually compelling stories.",
     
     // Portrait image path
-    profileImage: "assets/vennela-photo.jpg",
-    
+profileImage: "vennela-photo.jpg",    
     // Contact details
     email: "vvennelaaa@gmail.com",
     instagramUrl: "https://instagram.com/vvennelaaa",
